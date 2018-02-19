@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<None Include="..\..\Prototype_One.uproject" />
+		<Filter Include="Source">
+			<UniqueIdentifier>{FBF27D96-227B-42CA-A146-0A2CF3BAAD9F}</UniqueIdentifier>
+		</Filter>
+		<None Include="..\..\Source\Prototype_One.Target.cs">
+			<Filter>Source</Filter>
+		</None >
+		<None Include="..\..\Source\Prototype_OneEditor.Target.cs">
+			<Filter>Source</Filter>
+		</None >
+		<Filter Include="Config">
+			<UniqueIdentifier>{CF18BA58-C970-4C2B-A836-7D91ED5F0DC5}</UniqueIdentifier>
+		</Filter>
+		<None Include="..\..\Config\DefaultEditor.ini">
+			<Filter>Config</Filter>
+		</None >
+		<None Include="..\..\Config\DefaultEngine.ini">
+			<Filter>Config</Filter>
+		</None >
+		<None Include="..\..\Config\DefaultGame.ini">
+			<Filter>Config</Filter>
+		</None >
+		<Filter Include="Source\Prototype_One">
+			<UniqueIdentifier>{66307D42-D2D1-4048-AB22-1155B32A5608}</UniqueIdentifier>
+		</Filter>
+		<None Include="..\..\Source\Prototype_One\Prototype_One.Build.cs">
+			<Filter>Source\Prototype_One</Filter>
+		</None >
+		<ClCompile Include="..\..\Source\Prototype_One\Prototype_One.cpp">
+			<Filter>Source\Prototype_One</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\Prototype_One\Prototype_One.h">
+			<Filter>Source\Prototype_One</Filter>
+		</ClInclude >
+		<ClCompile Include="..\..\Source\Prototype_One\Prototype_OneGameModeBase.cpp">
+			<Filter>Source\Prototype_One</Filter>
+		</ClCompile >
+		<ClInclude Include="..\..\Source\Prototype_One\Prototype_OneGameModeBase.h">
+			<Filter>Source\Prototype_One</Filter>
+		</ClInclude >
+	</ItemGroup>
+</Project>
