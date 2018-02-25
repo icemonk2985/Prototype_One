@@ -3,22 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ArrowManager : MonoBehaviour {
-
+    //Singleton
     public static ArrowManager Instance;
 
+    //privates
     private GameObject currentArrow;
     private bool isAttached = false;
     private float FinalDrawDistance = 0.0f;
 
+    //Public objects that can be referenced and seen by other objects.
     public SteamVR_TrackedObject trackedObj;
     public GameObject arrowPrefab;
     public GameObject stringAttachPoint;
     public GameObject arrowStartPoint;
     public GameObject stringStartPoint;
 
+    //Private objects that can be assigned through the editor like Publics.
     [SerializeField] float PullPowerCompensation = 10.0f;
     [SerializeField] float ArrowPositionXCompensation = 1.0f;
     [SerializeField] float ReleaseStrength = 10.0f;
+    [SerializeField] float MaxDrawDistance = 0.55f;
 
     void Awake() {
         if (Instance == null)
@@ -46,9 +50,9 @@ public class ArrowManager : MonoBehaviour {
         if (isAttached) {
             //Gets distance between bow and pulling hand 
             float distance = (stringStartPoint.transform.position - trackedObj.transform.position).magnitude;
-            if (distance > 0.6f)
+            if (distance > MaxDrawDistance)
             {
-                distance = 0.6f;
+                distance = MaxDrawDistance;
             }
             //Debug.Log(distance.ToString());
             stringAttachPoint.transform.localPosition = new Vector3((stringStartPoint.transform.localPosition.x + distance + ArrowPositionXCompensation) * PullPowerCompensation, 0f, 0f);
@@ -67,7 +71,8 @@ public class ArrowManager : MonoBehaviour {
         //Release the arrow and give it a velocity
         currentArrow.transform.parent = null;
         currentArrow.GetComponent<Arrow>().Fired();
-        currentArrow.GetComponent<BoxCollider>().isTrigger = false;
+        //currentArrow.GetComponent<BoxCollider>().isTrigger = false;
+        currentArrow.GetComponent<Arrow>().ThisArrowTip.GetComponent<BoxCollider>().isTrigger = false;
         Rigidbody r = currentArrow.GetComponent<Rigidbody>();
         r.velocity = currentArrow.transform.forward * (FinalDrawDistance /0.6f) * ReleaseStrength;
         r.useGravity = true;
