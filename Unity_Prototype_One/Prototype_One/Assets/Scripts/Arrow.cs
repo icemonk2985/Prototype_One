@@ -12,11 +12,13 @@ public class Arrow : MonoBehaviour {
     private float TimeAlive;
 
     void OnTriggerStay(Collider _other) {
-        AttachArrow();
+        if (_other.gameObject.tag =="Bow")
+            AttachArrow();
     }
 
     void OnTriggerEnter(Collider _other) {
-        AttachArrow();
+        if (_other.gameObject.tag == "Bow")
+            AttachArrow();
     }
 
 

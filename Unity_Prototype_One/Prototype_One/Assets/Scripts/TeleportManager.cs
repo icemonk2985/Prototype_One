@@ -9,7 +9,7 @@ public class TeleportManager : MonoBehaviour {
     [SerializeField] GameObject PlayerRig;
     [SerializeField] float FadeDuration = 1.0f;
 
-    private Vector3 PositionToTeleportTo;
+    private Vector3 PositionToTeleportTo = Vector3.zero;
 
 
 
@@ -39,7 +39,7 @@ public class TeleportManager : MonoBehaviour {
 
     private void TeleportPlayer() {
         //Teleport to new location and clear the variable
-        PlayerRig.transform.position = PositionToTeleportTo;
+        PlayerRig.transform.position = PositionToTeleportTo;                                                                        
         PositionToTeleportTo = Vector3.zero;
 
         SteamVR_Fade.Start(Color.clear, FadeDuration);
