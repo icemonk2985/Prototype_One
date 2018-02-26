@@ -92,7 +92,7 @@ public class ArrowManager : MonoBehaviour {
             currentArrow.transform.parent = trackedObj.transform;
             currentArrow.transform.localPosition = new Vector3(0f, 0f, 0.34f);
           //currentArrow.transform.localRotation = Quaternion.identity;
-            currentArrow.transform.localRotation = Quaternion.Euler(0f, 180f, 0f);
+            currentArrow.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
         }
     }
 
@@ -101,7 +101,7 @@ public class ArrowManager : MonoBehaviour {
 
         //Attach the arrow to a set position and rotation each time so it aligns with the bow and the string
         currentArrow.transform.localPosition = arrowStartPoint.transform.localPosition;
-        //currentArrow.transform.rotation = arrowStartPoint.transform.rotation;
+        currentArrow.transform.localRotation = arrowStartPoint.transform.localRotation;
         isAttached = true;
     }
 }
